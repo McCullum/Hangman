@@ -1,0 +1,77 @@
+﻿<Window x:Class="Hangman.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hangman"
+        mc:Ignorable="d"
+        Title="Hangman" Height="450" Width="800" MinWidth="800" MinHeight="450" Background="Azure">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3">
+            <Image x:Name="imgHangman" Source="E:\Conestoga\Semester 1 Jan 2020 - May 2020\High Quality Software Programming\Assignments\Assignment 4\Hangman\Hangman\Images\1.PNG" Width="Auto" Height="Auto" />
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+            <Label x:Name="lblRemainingLives" Content="Total Lives Remaining 3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"></Label>
+            <Label x:Name="lblLastInput" Content="Last Wrong Input " HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20"/>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="4">
+            <Label Content="Select Category" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ComboBox x:Name="txtCategory"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" SelectionChanged="txtCategory_SelectionChanged">
+                <ComboBoxItem Content="Country Name"/>
+                <ComboBoxItem Content="Fruit Name"/>
+                <ComboBoxItem Content="Animal Name"/>
+                <ComboBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </ComboBox.Resources>
+            </ComboBox>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="4">
+            <TextBox x:Name="txtInput" CharacterCasing="Upper" HorizontalAlignment="Center" Text="Enter Character" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="30" FontSize="18" TextAlignment="Center" LostFocus="txtInput_LostFocus" GotFocus="txtInput_GotFocus" Foreground="DarkGray" MaxLength="1" PreviewTextInput="txtInput_PreviewTextInput">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button x:Name="btnSubmit" Content="Submit" Height="30" Width="100" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="btnSubmit_Click"  >
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="4" Grid.RowSpan="2">
+            <Label x:Name="lblCharacter1" Width="auto" Height="60" FontSize="40" HorizontalContentAlignment="Center" />
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="4">
+            <Button x:Name="btnTryAnother" Height="30" Width="100" Content="Try Another" Click="btnTryAnother_Click" >
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
